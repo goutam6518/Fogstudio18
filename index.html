@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOG Studio18</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+     
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+    }
+    .logo, .icons img {
+      cursor: pointer;
+    }
+    .content {
+      padding-top: 70px;
+      width: 100%;
+    }
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 0px 0px 40px;
+      background: linear-gradient(180deg, #000 60%, transparent);
+      box-shadow:linear-gradient(180deg, #000 60%, transparent);;
+    }
+    .hero h1 {
+      font-size: 32px;
+      animation: fadeInDown 1.2s ease-out;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .section {
+      padding: 20px;
+    
+    }
+    .fade-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #fff, transparent);
+      margin: 20px 0;
+    }
+    .animated-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      animation: fadeInLeft 1.5s ease-out;
+    }
+    .animated-logo img {
+      width: 50px;
+    }
+    .animated-logo-text {
+      font-size: 20px;
+      font-weight: bold;
+      animation: fadeInRight 1.5s ease-out;
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .clickable-box {
+      background: #0d0d0d;
+      padding: 15px;
+      border-radius: 10px;
+      border:1px soild white;
+      margin: 10px 0;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .blog-videos {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      width: 100%;
+    }
+    .blog-videos iframe {
+      width: 100%;
+      height: 170px;
+      border-radius: 10px;
+      flex: 0 0 auto;
+    }
+    .founder {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .founder img {
+      width: 170px;
+      border-radius: 20px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .founder img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fff;
+    }
+    .career, .social-icons {
+      padding: 20px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .social-icons a img {
+      width: 30px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color:#0d0d0d;
+      width: 100%;
+    }
+    #sidebar {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: white;
+      color: black;
+      z-index: 2000;
+      padding: 20px;
+      transition: left 0.3s;
+    }
+    #sidebar.active {
+      left: 0;
+    }
+    #sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    #sidebar ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .clickable-box2{
+    background: #0d0d0d;
+      padding: 15px 5px 0px 00px ;
+      border-radius: 10px;
+      border:1px soild white;
+      margin: 10px 0;
+      display: inline-block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="toggleSidebar()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" width="24" align="center" /> <b>FOG STUDIO<b>
+      
+    </div>
+    <div class="icons">
+
+    </div>
+  </header>  <div id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">&times;</div>
+    <ul>
+      <li style="color:#000;" ><a href="career.html" >Careers</a></li>
+      <li style="color:#000;" ><a href="esports .html">Esports</a></li>
+      <li style="color:#000;" ><a href="#supt">Support</a></li>
+    </ul>
+  </div>  <div class="content
+    <div class="hero">
+      <img src="VN20250708_102930 (1).gif" height="200px" width="100%" >
+    </div>
+
+<div class="section animated-logo">
+  <img src="logo.png"  alt="Fog Logo" />
+  <div class="animated-logo-text">FOG STUDIO18 - GAME DEVELOPMENT AND PUBLISHER</div>
+</div>
+
+<div class="section">
+  <div class="clickable-box" onclick="location.href='igsdownload.html'">
+    <img src="favicon.jpg" width="60" align="top" /> <p id="pa" ><b>ICONIC GAMING SECTOR (IGS)</b>
+    <br>IGS IS A GAMING PLATFORM. FOR GAMER, GAMER CAN EARN REWARD, FROM TASK, IGS v1.5 DOWNLOADS</p>
+    </div>
+  
+
+
+
+<div class="section">
+  <div class="clickable-box2" onclick="location.href='devdownload.html'">
+    <img src="Polish_20250707_215418322.jpg" width="60" align="left" /><br><br><br>
+    <p id="pa" align="left" ><b> IGS DEV </b><br>
+  IGS DEV IS A APP FOR DEVELOPERS, THEY CAN CHECK DETAILS ABOUT OUR GAMES AND EARNING AND MORE....</p>
+</div>
+
+<div class="sectionblog">
+  <h2>BLOG</h2>
+  <div class="blog-videos">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/nlAazaF-f0k" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/6orWEozz9QI" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/SEtCLto0wjM" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="section founder">
+  <h2 align="left" >FOUNDER</h2>
+  <img src="Polish_20250708_001526236.png" alt="Founder">
+  
+</div>
+
+<div class="section career">
+  <h2>CAREER</h2>
+  <p>DO YO CREATE A CAREER WITH FOG STUDIO, YOU CAN MADE IT WITH FOG DEV BATCH. NOW THESE BATCH FREE FROM IGS DEV ON 3 LINE MENU CLICK. SEE DEV BATCH AND JOIN AND FULL DETAILS OF DEV BATCH YOU WELL GET FROM DEV BATCH GROUP, NO OFFICE NEED DEVELOPERS IN FOGSTUDIO.</p>
+ <a href="https://wa.me/qr/ST3NCHGL2E6NO1" ><i style="color:white;">GET.....</i></a>
+ </div>
+
+
+<div class="section" id="supt" >
+  <h2>SOCIAL CONTACT</h2>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/fogstudio18?igsh=bTU2OHgzMHFjM3A4" target="_blank"><img src="https://img.icons8.com/fluency/48/instagram-new.png" /></a>
+    <a href="https://wa.me/qr/ST3NCHGL2E6NO1" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" /></a>
+    <a href="mailto:gkfogatudio7@gmail.com" target="_blank"><img src="https://img.icons8.com/color/48/gmail--v1.png" /></a>
+    <a href="https://t.me/theigs" target="_blank"><img src="https://img.icons8.com/color/48/telegram-app--v1.png" /></a>
+  </div>
+</div>
+
+<footer>
+  FOG STUDIO18 © 2025<br>
+</footer>
+
+  </div>  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+  </script></body>
+</html>
