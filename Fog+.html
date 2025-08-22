@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fog+ Marketing</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif;}
+    body {background:#0b0c10; color:#fff;}
+
+    header {
+      background:#1a1a2e;
+      padding:15px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .logo {
+      font-size:1.6rem;
+      font-weight:700;
+      background:linear-gradient(90deg,#8e2de2,#4a00e0);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    nav a {
+      color:#fff;
+      margin:0 12px;
+      text-decoration:none;
+    }
+    nav a:hover {color:#8e2de2;}
+    .order-btn {
+      background:#8e2de2; border:none; color:#fff;
+      padding:10px 20px; border-radius:25px;
+      cursor:pointer; font-weight:bold;
+    }
+
+
+    .hero {display:flex; flex-wrap:wrap; justify-content:space-between;
+      align-items:center; padding:40px 30px;}
+    .hero-text {max-width:500px;}
+    .hero-text h1 {
+      font-size:2.4rem;
+      background:linear-gradient(90deg,#ff416c,#ff4b2b);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .hero-text p {margin:20px 0; font-size:1.1rem;}
+    .form-box {
+      background:#1a1a2e; padding:20px;
+      border-radius:12px; width:300px;
+    }
+    .form-box input,.form-box select {
+      width:100%; padding:10px; margin:6px 0;
+      border:none; border-radius:8px;
+      background:#0f0f1e; color:#fff;
+    }
+    .form-box button {
+      width:100%; padding:10px;
+      background:#8e2de2; border:none;
+      color:#fff; font-weight:bold; border-radius:8px;
+      margin-top:8px;
+    }
+
+
+    .partners {
+      background:#111122; padding:20px 0;
+      overflow:hidden; white-space:nowrap;
+      position:relative;
+    }
+    .partners h2 {
+      text-align:center; margin-bottom:15px;
+      font-size:1.5rem;
+      background:linear-gradient(90deg,#00f2fe,#4facfe);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .logos {
+      display:inline-block;
+      animation:scroll 25s linear infinite;
+    }
+    .logos img {
+      height:120px; margin:0 30px; width:20%;
+      border-radius:15px;
+      filter:drop-shadow(0 0 5px rgba(255,255,255,0.3));
+    }
+    @keyframes scroll {
+      0% {transform:translateX(0);}
+      100% {transform:translateX(-50%);}
+    }
+
+
+    .overlay {
+      display:none; position:fixed;
+      top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.8);
+      justify-content:center; align-items:center;
+      z-index:1000;
+    }
+    .overlay-content {
+      background:#1a1a2e; padding:20px;
+      border-radius:12px; width:300px;
+      text-align:center;
+    }
+    .overlay-content h3 {color:#8e2de2; margin-bottom:15px;}
+    .overlay-content button {
+      width:100%; padding:10px; border:none;
+      margin:5px 0; border-radius:8px;
+      font-weight:bold; color:#fff; cursor:pointer;
+    }
+    .whatsapp-btn {background:#25d366;}
+    .email-btn {background:#4a90e2;}
+    .close-btn {background:#ff4b2b;}
+
+    footer {
+      text-align:center; padding:15px;
+      background:#1a1a2e; margin-top:30px;
+    }
+
+    @media(max-width:768px){
+      .hero {flex-direction:column; text-align:center;}
+      .form-box {width:90%; margin-top:20px;}
+      .hero-text {max-width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Fog+</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+  </nav>
+  <button class="order-btn" onclick="openOverlay()">Order</button>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Let's Build Something Iconic</h1>
+    <p>Custom marketing strategies for next-gen brands. Fill out your details and start today!</p>
+  </div>
+  <div class="form-box">
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="number" placeholder="WhatsApp Number">
+    <button onclick="openOverlay()">Order</button>
+  </div>
+</section>
+
+<section class="partners">
+  <h2>Our Partners</h2>
+  <div class="logos">
+    <img src="Polish_20250822_131348038.jpg" alt="Logo1">
+    <img src="Polish_20250822_131105864.jpg" alt="Logo2">
+    <img src="https://via.placeholder.com/150x50" alt="Logo3">
+    <img src="https://via.placeholder.com/150x50" alt="Logo4">
+    <img src="https://via.placeholder.com/150x50" alt="Logo5">
+    <img src="https://via.placeholder.com/150x50" alt="Logo6">
+  </div>
+</section>
+
+<div id="orderOverlay" class="overlay">
+  <div class="overlay-content">
+    <h3>Contact Us</h3>
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">WhatsApp</button>
+    <button class="email-btn" onclick="sendEmail()">Email</button>
+    <button class="close-btn" onclick="closeOverlay()">Close</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Fog+ Studio. All Rights Reserved.</p>
+</footer>
+
+<script>
+function openOverlay(){
+  document.getElementById('orderOverlay').style.display='flex';
+}
+function closeOverlay(){
+  document.getElementById('orderOverlay').style.display='none';
+}
+
+function getDetails(){
+  return `Hi, let's build together!%0A`+
+  `Details:%0A`+
+  `Name: ${document.getElementById('name').value}%0A`+
+  `Email: ${document.getElementById('email').value}%0A`+
+  `WhatsApp: ${document.getElementById('number').value}%0A`;
+}
+
+function sendWhatsApp(){
+  let msg = getDetails();
+  window.open(`https://wa.me/9888670627?text=${msg}`,'_blank');
+}
+
+function sendEmail(){
+  let msg = getDetails().replace(/%0A/g, '\n');
+  window.location.href = `mailto:gkfogatudio7@gmail.com?subject=New Order&body=${msg}`;
+}
+</script>
+
+</body>
+</html>

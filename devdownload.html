@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IGS dev Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+  <title>IGS Download</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,17 +12,22 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: black;
+      background:linear-gradient(#000,#1a1a1a);
       color: white;
     }
 
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 15px;
-      background-color: transparent;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1000;
     }
-
     .menu-icon {
       font-size: 24px;
       cursor: pointer;
@@ -38,36 +43,71 @@
       font-size: 22px;
       font-weight: bold;
     }
-
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background-color: rgba(0,0,0,1);
+      color: white;
+      z-index: 2000;
+      padding: 20px;
+      transition: 0.4s;
+      border-left: 1px solid white;
+    }
+    #sidebar.active {
+      left: 0;
+    }
+    #sidebar .close-btn {
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      display: block;
+      text-align: right;
+    }
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+      font-size: 20px;
+    }
+    #sidebar ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    #sidebar ul li a {
+      color: white;
+      text-decoration: none;
+    }
     .main-image {
-      width: 90%;
+      width:180px;
       max-width: 400px;
       height: auto;
       background-color: #111;
-      border: 4px solid white;
-      margin: 20px auto 10px;
+      border-radius:10px;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      left:0;
+      margin:20px 00px 00px 50px ;
     }
 
     .main-image img {
-      width: 100%;
+      width: 130px;
       height: auto;
+      border-radius:10px;
     }
 
     .version {
-      text-align: center;
       font-size: 20px;
-      margin-top: 10px;
+      margin: 0px 0px 0px 70px;
+      position:absolute;
+      left:140px;
     }
 
     .download-btn {
-      display: block;
-      width: 80%;
-      max-width: 250px;
-      margin: 20px auto;
-      padding: 12px;
+      position:absolute;
+      margin:80px;
+      left:125px;
+      padding: 12px 40px 12px 40px;
       background: white;
       color: black;
       font-size: 20px;
@@ -87,6 +127,7 @@
       padding: 0 20px;
       font-size: 16px;
       line-height: 1.6;
+      height:400px;
       max-width: 700px;
       margin: 0 auto;
     }
@@ -103,24 +144,134 @@
       margin: 40px 0 20px;
       color: white;
     }
+    #v{
+    position:absolute;
+    right:200px;
+    margin:50px 00px 00px 00px ;
+    color:#bab6b7;
+    
+    }
+    #appimg{
+    display:flex;
+    overflow-x: auto;
+    gap: 15px;
+    margin:00px 00px 00px 40px;
+    height:400px;
+    width:90%;
+    }
+    #description{
+    font-size:11px;
+    width:80%;
+    color:#bab6b7;
+    margin:00px 00px 00px 40px;
+    border-top:1px solid white ;
+    }
+    
+    
   </style>
 </head>
 <body>
 
   <header>
-    <div class="menu-icon"><a href="index.html">&#9776;</a></div>
-    <div class="logo-text">FOG STUDIO</div>
-  </header>
+    <div class="logo" onclick="toggleSidebar()">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" width="24" align="center" /> <b>FOG STUDIO<b> 
+    </div>
+    <div class="icons">
+    </div>
+  </header> 
+  <div id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">&times;</div>
+    <ul>
+      <li style="color:#000;" ><a href="index.html" style="color:white;"  >Home</a></li>
+      <li style="color:#000;" ><a href="igsdownload.html" style="color:white;"  >IGS</a></li>
+      <li style="color:#000;" ><a href="fog+.html"  style="color:white;"   >Fog+</a></li>
 
-  <div class="main-image">
-    <img src="Polish_20250708_203941334.png" alt="IGS Banner" />
+    </ul>
   </div>
-
-  <div class="version">I G S  DEV</div>
-
-  <a href="https://apkadmin.com/mlwldn0npj1g/IGS_DEV.apk.html" target="_blank">
-    <button class="download-btn">DOWNLOAD</button>
+  <br>
+  <br>
+  <div class="main-image">
+    <img src="Polish_20250707_215418322.jpg" alt="IGS Banner" />
+    <div class="version"><p>I G S Dev</p></div>
+    <br>
+    <p id="v">v 0.7.5</p>
+    <button class="download-btn" onclick="location.href='https://apkadmin.com/tw7fez6dl31a/IGS_DEV.apk.html'" >DOWNLOAD</button>
   </a>
+  </div>
+   
+   <div id="appimg" >
+   <div><img src="Polish_20250821_121910755.jpg" height="350px" style="border:1px solid white; border-radius:5px; margin:30px 00px 00px 00px ; " /></div>
+   <div><img src="Polish_20250821_121522814.jpg" height="350px" style="border:1px solid white; border-radius:5px; margin:30px 00px 00px 00px ; "/></div>
+   <div><img src="" /></div>
+   
+   </div>
+     <h2 align="center" >Description</h2>
+     <div id="description" ><p><i>
+     🎮 IGS – Iconic Gaming Scoter
+
+IGS is a next-generation gaming platform by Fogstudio18, designed for gamers and developers to connect, play, and earn rewards – all in one place!
+
+
+---
+
+For Gamers
+
+🕹️ Play Unlimited Games – Explore casual, premium, and trending titles.
+
+💰 Earn IGX Coins & Rewards – Claim daily bonuses, watch ads, and complete challenges to earn.
+
+🎡 Spin & Win – Try your luck and win coins, premium boxes, and surprises.
+
+🏆 Compete in Leaderboards – Show your skills and rank among the best players.
+
+🎉 Join Exciting Events – Watch trailers, participate, and grab rewards.
+
+
+
+---
+
+For Developers
+
+🚀 Upload Your Games Easily – Showcase your creativity to the gaming community.
+
+📊 Track Downloads & Earnings – Real-time statistics powered by Firebase.
+
+🏢 Developer Dashboard – View performance insights, graphs, and payout options.
+
+
+
+---
+
+Core Features
+
+1. 🖥️ Modern Homepage – Sleek animations, New Games, VIP Games, Events, and Leaderboards.
+
+
+2. 🎁 IGS Rewards Hub – Daily Claim, Spin Wheel, IGX Coins, and IGS Box System.
+
+
+3. 🛠️ Developer Zone – Game management tools and real-time analytics.
+
+
+4. 📱 Interactive UI – Sidebar with profile & coin balance + bottom navigation for smooth access.
+
+
+5. ☁️ Cloud-Powered – Real-time updates with Firebase for games, rewards, and user data.
+
+
+Why Choose IGS?
+
+IGS is more than a gaming platform – it’s a community where:
+
+Gamers play & earn 🎮💰
+
+Developers publish & grow 🚀
+
+
+With continuous updates, rewards, and a sleek 3D-inspired design, IGS delivers a next-level gaming experience.
+
+  </i> </p> </div>
+
 
   <div class="section-title">How to Download</div>
   <div class="instructions">
@@ -144,6 +295,13 @@
   <footer>
     FOG studio18 ©2025
   </footer>
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+    </script>
+
+
 
 </body>
 </html>
