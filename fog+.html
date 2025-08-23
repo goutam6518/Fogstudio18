@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <title>Fog+ Marketing</title>
   <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif;}
@@ -76,16 +76,18 @@
     }
     .logos {
       display:inline-block;
-      animation:scroll 25s linear infinite;
+animation:scroll 10s linear infinite;
+white-space: nowrap; /* Prevents items from wrapping to the next line */
+  overflow: hidden;
     }
     .logos img {
-      height:120px; margin:0 30px; width:20%;
+      height:90px; margin:0 30px; width:20%;
       border-radius:15px;
-      filter:drop-shadow(0 0 5px rgba(255,255,255,0.3));
+      filter:drop-shadow(0 0 7px rgba(255,255,255,0.3));
     }
     @keyframes scroll {
       0% {transform:translateX(0);}
-      100% {transform:translateX(-50%);}
+      100% {transform:translateX(-100%);}
     }
 
 
@@ -121,6 +123,104 @@
       .form-box {width:90%; margin-top:20px;}
       .hero-text {max-width:100%;}
     }
+    
+    .dprojects{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    h2 {
+      text-align:center; margin-bottom:15px;
+      font-size:1.5rem;
+      background:linear-gradient(90deg,#00f2fe,#4facfe);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .dprojects {
+  padding: 40px 20px;
+  background: #0f0f1e;
+  margin-top: 30px;
+}
+
+.project-grid {
+  display: grid;
+  align-items:center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #1a1a2e;
+  border-radius: 12px;
+  text-align: center;
+  
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(142, 45, 226, 0.3);
+}
+    .about {
+  padding: 40px 20px;
+  background: #0f0f1e;
+  border-top: 2px solid #1a1a2e;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg,#00f2fe,#4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about h3 {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: #8e2de2;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 15px 0;
+  color: #ddd;
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.about ul li {
+  background: #1a1a2e;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about ul li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 10px rgba(142, 45, 226, 0.3);
+}
+    
   </style>
 </head>
 <body>
@@ -128,9 +228,9 @@
 <header>
   <div class="logo">Fog+</div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
+    <a href="fog+.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#demo">Demo</a>
   </nav>
   <button class="order-btn" onclick="openOverlay()">Order</button>
 </header>
@@ -151,13 +251,62 @@
 <section class="partners">
   <h2>Our Partners</h2>
   <div class="logos">
-    <img src="Polish_20250822_131348038.jpg" alt="Logo1">
-    <img src="Polish_20250822_131105864.jpg" alt="Logo2">
-    <img src="https://via.placeholder.com/150x50" alt="Logo3">
-    <img src="https://via.placeholder.com/150x50" alt="Logo4">
-    <img src="https://via.placeholder.com/150x50" alt="Logo5">
-    <img src="https://via.placeholder.com/150x50" alt="Logo6">
+    <img src="Polish_20250823_111924009.png" alt="Logo1">
+    <img src="Polish_20250823_111948816.png" alt="Logo2">
+    <img src="file_00000000083861f9bbd48d1e815a4bea.png" alt="Logo3">
   </div>
+    <div class="logos" aria-hidden="true" >
+    <img src="Polish_20250823_111924009.png" alt="Logo1">
+    <img src="Polish_20250823_111948816.png" alt="Logo2">
+    <img src="file_00000000083861f9bbd48d1e815a4bea.png" alt="Logo3">
+  </div>
+  
+      <div class="logos" aria-hidden="true" >
+    <img src="Polish_20250823_111924009.png" alt="Logo1">
+    <img src="Polish_20250823_111948816.png" alt="Logo2">
+    <img src="file_00000000083861f9bbd48d1e815a4bea.png" alt="Logo3">
+  </div>
+</section>
+
+<section class="dprojects" id="demo" >
+  <h2>Demo Projects</h2>
+  <br>
+  <br>
+  <div class="project-grid">
+    <div class="project-card">
+     <img src="Polish_20250720_000305843.png" alt="Web Project 1" onclick="location.href='igsdownload.html'">
+      <p>APP Project IGS</p>
+    </div>
+    <div class="project-card">
+      <img src="Polish_20250819_212436495.jpg" alt="Web Project 2" onclick="location.href='devdownload.html'"  >
+      <p>APP Project IGS Dev</p>
+    </div>
+  </div>
+</section>
+<section class="about" id="about" >
+  <h2>About Fog+</h2>
+  <p>
+    Fog+ is a next-generation digital solutions platform developed by <strong>Fog Studio18</strong>, 
+    designed to help brands, startups, and creators build a strong online presence with modern 
+    websites, mobile apps, and marketing tools. Our mission is to provide affordable yet premium 
+    solutions for businesses of all sizes, helping them grow faster and engage with their audience 
+    in a meaningful way.
+  </p>
+
+  <h3>Key Benefits</h3>
+  <ul>
+    <li><strong>Modern & Attractive Design</strong> – Sleek UI/UX, responsive layouts, and stunning animations.</li>
+    <li><strong>Fast & Optimized Performance</strong> – SEO-friendly, secure, and built for speed.</li>
+    <li><strong>Affordable & Flexible Plans</strong> – Packages for startups, small businesses, and enterprises.</li>
+    <li><strong>Branding & Marketing Support</strong> – Logo design, social media integration, and promotional tools.</li>
+    <li><strong>Continuous Innovation</strong> – Regular updates and access to AI tools, dashboards, and more.</li>
+  </ul>
+
+  <h3>Who is Fog+ for?</h3>
+  <p>
+    Startups, small businesses, creators, and brands who want a modern digital experience 
+    with innovative features and a professional online presence.
+  </p>
 </section>
 
 <div id="orderOverlay" class="overlay">
@@ -192,6 +341,16 @@ function getDetails(){
 function sendWhatsApp(){
   let msg = getDetails();
   window.open(`https://wa.me/9888670627?text=${msg}`,'_blank');
+}
+
+function sendEmail(){
+  let msg = getDetails().replace(/%0A/g, '\n');
+  window.location.href = `mailto:gkfogatudio7@gmail.com?subject=New Order&body=${msg}`;
+}
+</script>
+
+</body>
+</html>  window.open(`https://wa.me/9888670627?text=${msg}`,'_blank');
 }
 
 function sendEmail(){
