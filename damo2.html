@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+  <title>Muktsar Vibe Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    /* Header */
+    header {
+      background: #000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 { margin: 0; font-size: 1.2rem; color: #fff; }
+    .search-bar input {
+      padding: 8px 20px;
+      border-radius: 25px;
+      border: 2px solid #ccc;
+      width: 180px;
+      background-color:#000;
+      color:#fff;
+    }
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: #000;
+      color: white;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: -285px; /* hidden */
+      transition: right 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .sidebar.active { right: 0; }
+    .sidebar h2 { margin: 0 0 30px; }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 1.3rem;
+      transition: 0.3s;
+      background:#1a1a1a;
+    }
+    .sidebar a:hover { color: #ffd369; }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      z-index: 1500;
+    }
+    .overlay.active { display: block; }
+
+    /* Slider */
+    .slider {
+      margin: 20px auto;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border:1px solid;
+    }
+      .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    }
+    @keyframes slide {
+      0% {transform: translateX(0);}
+      33% {transform: translateX(-100%);}
+      66% {transform: translateX(-200%);}
+      100% {transform: translateX(-0%);}
+
+    }
+
+    /* Products */
+    .products {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
+    }
+    .product-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      border: solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+    .product-info { padding: 10px; }
+    .product-info h3 { margin: 0; font-size: 1rem; }
+    .product-info p { margin: 5px 0; color: #777; }
+    .product-info button {
+      background: #2b2b2b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+    .product-info button:hover { background: #ffd369; color: #2b2b2b; }
+
+    /* Reviews & Blog */
+    .section { padding: 20px; }
+    .section h2 { margin-bottom: 15px; font-size: 1.2rem; }
+    .reviews, .blogs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background: black;
+      color:white;
+      padding: 15px;
+      border:1px solid;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #2b2b2b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    footer iframe {
+      width: 100%;
+      height: 180px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    /* Mobile adjustments */
+    @media(max-width: 768px){
+      header h1 { font-size: 1rem; }
+      .search-bar input { width: 140px; }
+      .slides img, .slides video { height: 220px; }
+    }
+    
+    
+    #bi{
+    width:200px;
+    
+    }
+
+   .overlay {
+      position: fixed;
+      width: 100%;
+      height: 250px;
+      background: rgba(0,0,0,1);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+    }
+    .overlay-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 80%;
+      max-width: 350px;
+    }
+    .overlay-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .overlay-content button {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    
+    
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+<a href="index.html" ><img src="Polish_20250817_213111124.jpg" height="70px" style="clip-path:circle(50%);" /></a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..."/>
+    </div>
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <a href="#">Cart</a>
+    <a href="#">Reviews</a>
+    <a href="#">About Café</a>
+  </div>
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="Polish_20250817_230647730.jpg" alt="Coffee">
+      <img src="Polish_20250817_230336785.jpg" alt="Cafe">
+    </div>
+  </div>
+  
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <p>✅ Your product has been added to cart!</p>
+      <button onclick="goToCheckout()">Checkout</button>
+    </div>
+  </div>
+
+
+
+  <!-- Products -->
+  <h2>New Launchs 🥤</h2>
+  <div class="products" id="product-list"></div>
+
+  <!-- Reviews -->
+  <div class="section">
+    <h2>Customer Reviews</h2>
+    <div class="reviews">
+      <div class="card">⭐️⭐️⭐️⭐️⭐️ <br> "Best coffee in town!"</div>
+      <div class="card">⭐️⭐️⭐️⭐️ <br> "Lovely ambience & snacks"</div>
+      <div class="card">⭐️⭐️⭐️⭐️⭐️ <br> "Quick delivery & tasty"</div>
+    </div>
+  </div>
+
+  <!-- Blog -->
+  <div class="section">
+    <h2>From Our Blog</h2>
+    <div class="blogs">
+      <div class="card"><iframe id="bi" src="https://www.instagram.com/reel/DNcsElKTXs0/?igsh=MWxkankxNXhzbXRnMQ=="  allowfullscreen ></iframe><p>Open coffee in Muktsar Day 9</p></div>
+      <div class="card"><iframe id="bi" src="https://www.instagram.com/reel/DNakowVMJiv/?igsh=bzdicGdybG5odDBs" ></iframe><p>Open coffee in Muktsar Day 7</p></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>📍 Muktsar Vibe Cafe,Near Bathinda Road Chownk,Shri Muktsar Sahib</p>
+    <p>📞 +91 98999999 | ✉ cafe@cafe@Vibe.com</p>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.1160982905!2d72.74109818964636!3d19.082197839235996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63e0a6f9f07%3A0x2871d34e36fc6a1f!2sCafe!5e0!3m2!1sen!2sin!4v1632311123456!5m2!1sen!2sin">
+    </iframe>
+  </footer>
+
+<script>
+  // Sidebar toggle
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active');
+  }
+
+  // Mock Products (replace with Firebase later)
+  const products = [
+    {name:"Hot Cofe", price:"₹150", img:"Polish_20250817_232058030.jpg"},
+    {name:"Cold Cofe", price:"₹120", img:"Polish_20250817_232253770.jpg"},
+    {name:"Spacial Cofe", price:"₹100", img:"Polish_20250817_232540832.jpg"},
+    {name:"Mocha", price:"₹170", img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"},
+  ];
+
+  const productList = document.getElementById('product-list');
+  products.forEach(p=>{
+    productList.innerHTML += `
+      <div class="product-card">
+        <img src="${p.img}" alt="${p.name}">
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <p>${p.price}</p>
+          <button onclick="showOverlay()">Add to Cart</button>
+        </div>
+      </div>
+    `;
+  });
+  
+  
+      function showOverlay() {
+      document.getElementById('overlay').style.display = 'flex';
+    }
+    function goToCheckout() {
+      window.location.href = "checkout.html";
+    }
+
+    // Click outside overlay to close
+    document.getElementById('overlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+    
+</script>
+</body>
+</html>
