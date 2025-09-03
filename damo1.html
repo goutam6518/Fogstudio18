@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+  <title>Stride — Modern Shoes Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* full CSS styles (from navbar to footer, as shown in earlier snippets) */
+    body{margin:0;font-family:"Manrope",sans-serif;background:#0b0d10;color:#e7eef8;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:auto;padding:0 20px;}
+    .nav{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(10,12,16,.75);z-index:10}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;height:70px}
+    .brand{display:flex;align-items:center;font-weight:800;font-size:20px}
+    .brand-logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#7c5cff,#00d4ff);display:grid;place-items:center;margin-right:8px}
+    .nav-links{display:flex;gap:18px;font-weight:600}
+    .btn{border:none;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(135deg,#7c5cff,#00d4ff);color:#0a0c10}
+    .btn-ghost{background:rgba(255,255,255,.1);color:#e7eef8}
+    .hero{ background:url("Adobe Express - Nike Air Max 270 - Animation(720P_HD).gif"); background-size:100%; background-repeat:no-repeat; height:300px;  display:grid;grid-template-columns:1.2fr 1fr;align-items:center;padding:60px 0;gap:20px}
+    .headline{font-size:48px;font-weight:800;line-height:1.1}
+    .subtext{color:#8b95a7;margin:16px 0}
+    .hero-card{position:relative;padding:20px;background:rgba(255,255,255,.05);border-radius:18px;overflow:hidden}
+    .hero-card img{width:100%;animation:float 6s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .pill-row{display:flex;gap:10px;overflow-x:auto;padding:10px 0}
+    .pill{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.1);cursor:pointer;white-space:nowrap}
+    .pill.active{background:linear-gradient(135deg,#7c5cff,#00d4ff);color:#0a0c10}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+    .card{background:rgba(255,255,255,.05);padding:14px;border-radius:16px;transition:.2s;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+    .card:hover{transform:translateY(-4px)}
+    .banner{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;background:rgba(255,255,255,.05);border-radius:18px;overflow:hidden}
+    .banner .copy{padding:30px}
+    .badge{padding:6px 12px;background:rgba(34,197,94,.2);border-radius:999px;font-size:12px;text-transform:uppercase;margin-bottom:10px;display:inline-block}
+    .carousel{overflow:hidden;position:relative}
+    .track{display:flex;transition:transform .6s ease}
+    .slide{min-width:100%;padding:24px;background:rgba(255,255,255,.05)}
+    footer{margin-top:40px;padding:30px 0;color:#8b95a7;border-top:1px solid rgba(255,255,255,.1)}
+    .foot-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:20px}
+    .drawer{position:fixed;top:0;right:0;width:300px;height:100%;background:#12161b;color:#e7eef8;transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
+    .drawer.open{transform:translateX(0)}
+    .drawer header{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+ #hbg{
+ background:url("Adobe Express - Nike Air Max 270 - Animation(720P_HD).gif");
+ background-size:100% 100%;
+ background-repeat:no-repeat;
+ }
+ 
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><div class="brand-logo">👟</div>Stride</div>
+      <div class="nav-cta"><button class="btn btn-ghost">Sign in</button><button class="btn btn-primary" id="cartBtn">Cart</button></div>
+    </div>
+  </nav>  <!-- HERO -->  <section class="hero container" id="hbg" >
+      <h1 class="headline">Step into Comfort & Style</h1><br>
+      <button class="btn btn-primary">Shop Now</button>
+    </div>
+  </section>  <!-- CATEGORIES -->  <section class="container">
+    <h2>Categories</h2>
+    <div class="pill-row"><div class="pill active">All</div><div class="pill">Sneakers</div><div class="pill">Running</div><div class="pill">Casual</div><div class="pill">Boots</div></div>
+  </section>  <!-- PRODUCTS -->  <section class="container" id="shop">
+    <h2>Featured Products</h2>
+    <div class="grid">
+      <div class="card"><img src="221106_Modeling_v001_0000.webp" alt="shoe"><h4>AirFlow Max</h4><p>$120</p><button class="btn btn-primary">Add to Cart</button></div>
+      <div class="card"><img src="https___hypebeast.com_image_2021_12_Bobbito-Garcia-x-Oscar-Acosta-Sneaker-NFT-1.jpg" alt="shoe"><h4>Urban Walk</h4><p>$95</p><button class="btn btn-primary">Add to Cart</button></div>
+      <div class="card"><img src="Polish_20250903_125318763.jpg" alt="shoe"><h4>Runner Pro</h4><p>$110</p><button class="btn btn-primary">Add to Cart</button></div>
+      <div class="card"><img src="Polish_20250903_125539287.jpg" alt="shoe"><h4>Classic High</h4><p>$130</p><button class="btn btn-primary">Add to Cart</button></div>
+    </div>
+  </section>  <!-- BANNER -->  <section class="container">
+    <div class="banner">
+      <div class="copy"><div class="badge">Limited Offer</div><h2>Summer Sale Up to 40% Off</h2><p>Get your favorite sneakers with exclusive discounts this season.</p><button class="btn btn-primary">Shop Sale</button></div>
+      <div><img src="images (6).jpeg" alt="sale"></div>
+    </div>
+    <br>
+        <br>
+            <br>
+                <br>
+  </section>  <!-- TESTIMONIALS -->  <section class="container">
+    <h2>What Customers Say</h2>
+    <div class="carousel"><div class="track" id="testimonialTrack"><div class="slide">⭐⭐⭐⭐⭐<br>Amazing comfort! — Alex</div><div class="slide">⭐⭐⭐⭐⭐<br>Best sneakers ever. — Jamie</div><div class="slide">⭐⭐⭐⭐⭐<br>Fast delivery. — Taylor</div></div></div>
+  </section>  <!-- FOOTER -->  <footer>
+    <div class="container foot-grid">
+      <div><strong>Stride</strong><p>Modern footwear for every step.</p></div>
+      <div><h4>Shop</h4><a href="#">All Products</a><br><a href="#">Men</a><br><a href="#">Women</a></div>
+      <div><h4>Support</h4><a href="#">Contact</a><br><a href="#">FAQ</a></div>
+      <div><h4>Follow</h4><a href="#">Instagram</a><br><a href="#">Twitter</a></div>
+    </div>
+    <br>
+        <br>
+            <br>
+  </footer>  <!-- CART DRAWER -->  <div class="drawer" id="cartDrawer">
+    <header><h3>Your Cart</h3><button id="closeCart">✖</button></header>
+    <div style="flex:1;padding:20px;color:#8b95a7">Cart is empty</div>
+    <div style="padding:20px;border-top:1px solid rgba(255,255,255,.1)"><button class="btn btn-primary" style="width:100%">Checkout</button></div>
+  </div>  <script>
+    const track=document.getElementById('testimonialTrack');let idx=0;setInterval(()=>{idx=(idx+1)%3;track.style.transform=`translateX(-${idx*100}%)`},4000);
+    const cartBtn=document.getElementById('cartBtn');const drawer=document.getElementById('cartDrawer');const closeCart=document.getElementById('closeCart');cartBtn.addEventListener('click',()=>drawer.classList.add('open'));closeCart.addEventListener('click',()=>drawer.classList.remove('open'));
+  </script></body>
+</html>
