@@ -1,96 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.8">
-  <title>Fog+ Marketing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+  <title>Fog+ Program — Demo Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif;}
-    body {background:#0b0c10; color:#fff;}
 
-    header {
-      background:#1a1a2e;
-      padding:15px 30px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+    /* THEME: Creative */
+    .theme-creative{
+      --bg: radial-gradient(970px 400px at 20% 10%, #3b82f6 0%, transparent 60%),
+            radial-gradient(1200px 400px at 80% 20%, #a855f7 0%, transparent 60%),
+            #0b1020;
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --primary: #a855f7; /* purple */
+      --accent: #22c55e; /* green */
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.18);
+      --glow: 0 10px 50px rgba(168,85,247,.45);
     }
-    .logo {
-      font-size:1.6rem;
-      font-weight:700;
-      background:linear-gradient(90deg,#8e2de2,#4a00e0);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    nav a {
-      color:#fff;
-      margin:0 12px;
-      text-decoration:none;
-    }
-    nav a:hover {color:#8e2de2;}
-    .order-btn {
-      background:#8e2de2; border:none; color:#fff;
-      padding:10px 20px; border-radius:25px;
-      cursor:pointer; font-weight:bold;
-    }
+    *{box-sizing:border-box}
+    html,body{
+  max-width: 100vw;
+  overflow-x: hidden; /* Ensure this is present */
 
+    
+    }
+    body{
+      margin:0;
+      font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 450px at 20% 10%, #3b82f6 0%, transparent 60%),
+            radial-gradient(1200px 600px at 80% 20%, #a855f7 0%, transparent 60%),
+            #0b1020;;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
 
-    .hero {display:flex; flex-wrap:wrap; justify-content:space-between;
-      align-items:center; padding:40px 30px;}
-    .hero-text {max-width:500px;}
-    .hero-text h1 {
-      font-size:2.4rem;
-      background:linear-gradient(90deg,#ff416c,#ff4b2b);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    /* Layout */
+    .container{max-width:1200px; width:95%; margin:0 auto;padding:0 20px }
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0));
+      border-bottom:1px solid var(--border);
     }
-    .hero-text p {margin:20px 0; font-size:1.1rem;}
-    .form-box {
-      background:#1a1a2e; padding:20px;
-      border-radius:12px; width:300px;
-    }
-    .form-box input,.form-box select {
-      width:100%; padding:10px; margin:6px 0;
-      border:none; border-radius:8px;
-      background:#0f0f1e; color:#fff;
-    }
-    .form-box button {
-      width:100%; padding:10px;
-      background:#8e2de2; border:none;
-      color:#fff; font-weight:bold; border-radius:8px;
-      margin-top:8px;
-    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:8px;height:8px;border-radius:5px;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:var(--glow)}
+    .brand strong{font-weight:800;letter-spacing:.5px}
+    .nav a{opacity:.9;margin-left:18px}
+    .nav a:hover{opacity:1}
 
+    .toolbar{display:flex;gap:10px;align-items:center}
+    .btn{cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 14px;border-radius:999px;display:inline-flex;gap:8px;align-items:center}
+    .btn.primary{background:linear-gradient(135deg, var(--primary), var(--accent));border:none;box-shadow:var(--glow)}
 
-    .partners {
-      background:#111122; padding:20px 0;
-      overflow:hidden; white-space:nowrap;
-      position:relative;
-    }
-    .partners h2 {
-      text-align:center; margin-bottom:15px;
-      font-size:1.5rem;
-      background:linear-gradient(90deg,#00f2fe,#4facfe);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .logos {
-      display:inline-block;
-animation:scroll 10s linear infinite;
-white-space: nowrap; /* Prevents items from wrapping to the next line */
-  overflow: hidden;
-    }
-    .logos img {
-      height:90px; margin:0 30px; width:20%;
-      border-radius:15px;
-      filter:drop-shadow(0 0 7px rgba(255,255,255,0.3));
-    }
-    @keyframes scroll {
-      0% {transform:translateX(0);}
-      100% {transform:translateX(-100%);}
+    /* Hero */
+    .hero{position:relative;padding:96px 0 72px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .headline{font-size:clamp(28px,5vw,56px);line-height:1.05;font-weight:800;letter-spacing:.3px}
+    .sub{color:var(--muted);max-width:58ch;margin-top:14px}
+    .hero-cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+
+    .hero-card{border:1px solid var(--border);background:var(--card);padding:20px;border-radius:var(--radius-xl);box-shadow:var(--glow)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .stat{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:16px;border-radius:16px;text-align:center}
+    .stat b{font-size:22px}
+
+    .device{aspect-ratio:16/10;border-radius:20px;border:1px solid var(--border);background:
+      radial-gradient(120% 100% at 100% 0%, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 60%),
+      linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.02));
+      box-shadow:var(--glow);position:relative;overflow:hidden
     }
 
+    /* Animated gradient orbs */
+    .orb{position:absolute;filter:blur(40px);opacity:.6;mix-blend:screen}
+    .orb.one{top:-80px;left:-60px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%, var(--primary), transparent 60%);animation:float1 9s ease-in-out infinite}
+    .orb.two{bottom:-80px;right:-60px;width:260px;height:260px;background:radial-gradient(circle at 70% 70%, var(--accent), transparent 60%);animation:float2 10s ease-in-out infinite 1s}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
+    /* Sections */
+    section{padding:80px 0}
+    .section-title{font-size:clamp(22px,3.8vw,36px);font-weight:800;margin-bottom:14px}
+    .section-sub{color:var(--muted);margin-bottom:28px}
+
+    /* Flip cards */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .flip{perspective:1200px}
+    .flip-inner{position:relative;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+    .flip:hover .flip-inner{transform:rotateY(180deg)}
+    .face{
+      position:relative;backface-visibility:hidden;border:1px solid var(--border);border-radius:18px;padding:22px;background:var(--card);min-height:190px
+    }
+    .back{position:absolute;inset:0;transform:rotateY(180deg)}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:999px;font-size:12px}
+
+    /* Portfolio */
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .work{
+      position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--border);background:var(--card);
+      transform:translateZ(0)
+    }
+    .work .thumb{aspect-ratio:16/10;display:block;background:linear-gradient(135deg, rgba(255,255,255,.2), rgba(255,255,255,.05))}
+    .work:hover .thumb{transform:scale(1.04)}
+    .work .cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,0));padding:16px;font-weight:600}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .plan{border:1px solid var(--border);background:var(--card);border-radius:20px;padding:22px;position:relative}
+    .plan.featured{outline:2px solid var(--primary);box-shadow:var(--glow)}
+    .price{font-size:34px;font-weight:800;letter-spacing:-.5px}
+    .plan ul{list-style:none;color:var(--muted);margin:14px 0 0;padding:0}
+    .plan li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quote{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:18px}
+
+    /* CTA */
+    .cta{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid var(--border);background:var(--card);padding:22px;border-radius:24px;box-shadow:var(--glow)}
+
+    footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted)}
+
+    /* Utilities */
+    .hidden{display:none}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .pill{padding:8px 12px;border:1px solid var(--border);background:rgba(255,255,255,.04);border-radius:999px}
+    .muted{color:var(--muted)}
+
+    /* On-scroll fades */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease, transform .9s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width: 970px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid,.pricing,.testimonials,.work-grid{grid-template-columns:1fr 1fr}
+      .stats{grid-template-columns:1fr 1fr 1fr}
+    }
+    @media (max-width: 660px){
+      .nav .links{display:none}
+      .grid,.pricing,.testimonials,.work-grid{grid-template-columns:1fr}
+      .cta{flex-direction:column;text-align:center}
+    }
+    
+    
     .overlay {
       display:none; position:fixed;
       top:0; left:0; width:100%; height:100%;
@@ -103,95 +162,320 @@ white-space: nowrap; /* Prevents items from wrapping to the next line */
       border-radius:12px; width:300px;
       text-align:center;
     }
-    .overlay-content h3 {color:#8e2de2; margin-bottom:15px;}
+    .overlay-content h3 {color:#fff; margin-bottom:15px;}
     .overlay-content button {
       width:100%; padding:10px; border:none;
       margin:5px 0; border-radius:8px;
       font-weight:bold; color:#fff; cursor:pointer;
     }
-    .whatsapp-btn {background:#25d366;}
-    .email-btn {background:#4a90e2;}
+    .whatsapp-btn {background:linear-gradient(135deg, var(--primary), var(--accent));}
+    .email-btn {background:linear-gradient(135deg, var(--primary), var(--accent));}
     .close-btn {background:#ff4b2b;}
 
-    footer {
-      text-align:center; padding:15px;
-      background:#1a1a2e; margin-top:30px;
-    }
-
-    @media(max-width:768px){
-      .hero {flex-direction:column; text-align:center;}
-      .form-box {width:90%; margin-top:20px;}
-      .hero-text {max-width:100%;}
-    }
     
-    .dprojects{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 30px;
-    }
-    h2 {
-      text-align:center; margin-bottom:15px;
-      font-size:1.5rem;
-      background:linear-gradient(90deg,#00f2fe,#4facfe);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .dprojects {
-  padding: 40px 20px;
-  background: #0f0f1e;
-  margin-top: 30px;
+  </style>
+</head>
+<body class="theme-creative">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <strong>Fog+ Program</strong>
+          <div class="muted" style="font-size:12px">App • Web • Growth</div>
+        </div>
+      </div>
+      <nav class="links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="toolbar">
+        <select id="themePicker" class="btn" title="Switch Demo Style">
+        </select>
+        <a onclick="openOverlay()" class="btn primary">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="headline reveal">Modern Website & App , For Your Business  ✨</h1>
+        <p class="sub reveal" style="margin-top:10px"> The Fog+ Program by Fogstudio18 is designed for creators, startups, and businesses who want to launch cutting-edge websites and mobile apps with professional support. Our program combines innovative design, robust development, and continuous guidance to ensure your digital presence stands out.
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn primary" onclick="openOverlay()"  > Order </a>
+          <a class="btn" href="#work">See Work</a>
+          <span class="pill">Fast Delivery</span>
+        </div>
+        <div class="stats reveal">
+          <div class="stat"><b>50+</b><div class="muted">Projects</div></div>
+          <div class="stat"><b>98%</b><div class="muted">Happy Clients</div></div>
+          <div class="stat"><b>24/7</b><div class="muted">Support</div></div>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <img class="device" src="20250903_113829.gif" height="240px" width="90%" ></img>
+        <div class="row" style="margin-top:14px">
+          <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> SEO Ready</span>
+          <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Fast Delivery</span>
+          <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> WhatsApp/Lead</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / FLIP CARDS -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title reveal">Fog+ Services & Benefits</h2>
+      <p class="section-sub reveal">Everything you need to launch a high‑converting presence: strategy, design, development, and ongoing growth.</p>
+
+      <div class="grid">
+        <div class="flip reveal">
+          <div class="flip-inner">
+            <div class="face front">
+              <h3>Brand & UI Kit</h3>
+              <p class="muted">Logo refresh, color palette, typography & social kits.</p>
+            </div>
+            <div class="face back">
+              <h3>Deliverables</h3>
+              <ul class="muted">
+                <li>Logo + Favicon set</li>
+                <li>Social media templates</li>
+                <li>Brand guide PDF</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="flip reveal">
+          <div class="flip-inner">
+            <div class="face front">
+              <h3>Modern Website</h3>
+              <p class="muted">Responsive, SEO‑friendly, with animations (fade, flip, parallax).</p>
+            </div>
+            <div class="face back">
+              <h3>Tech Stack</h3>
+              <ul class="muted">
+                <li>Static or Firebase hosting</li>
+                <li>Contact & WhatsApp leads</li>
+                <li>Analytics & heatmaps</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="flip reveal">
+          <div class="flip-inner">
+            <div class="face front">
+              <h3>Growth & Ads</h3>
+              <p class="muted">Campaign setup, email, remarketing & A/B testing.</p>
+            </div>
+            <div class="face back">
+              <h3>Performance</h3>
+              <ul class="muted">
+                <li>Keyword research</li>
+                <li>Landing page A/B tests</li>
+                <li>Monthly reporting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:18px">
+        <span class="pill">1 Year Domain Included</span>
+        <span class="pill">Custom Designs</span>
+        <span class="pill">2 Months Site Managing & Full Guide</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title reveal">Recent Work & Demos</h2>
+      <p class="section-sub reveal">A quick look at the style range we can deliver with Fog+.</p>
+
+      <div class="work-grid">
+        <a class="work reveal" href="damo1.html" >
+          <div class="thumb"  ><iframe src="damo1.html" height="102%" width="100%" style="border:none; overflow-x:hidden; " ></iframe></div>
+          <div class="cap"> Sneaker Store</div>
+        </a>
+        <a class="work reveal" href="index.html">
+          <div class="thumb"><iframe src="index.html" height="102%" width="100%" style="border:none; overflow-x:hidden; " ></iframe></div>
+          <div class="cap">FogStudio18 site</div>
+        </a>
+        <a hidden class="work reveal" href="#">
+          <div class="thumb"></div>
+          <div class="cap">SaaS / Startup</div>
+        </a>
+        <a hidden class="work reveal" href="#">
+          <div class="thumb"></div>
+          <div class="cap">Event Microsite</div>
+        </a>
+        <a hidden class="work reveal" href="#">
+          <div class="thumb"></div>
+          <div class="cap">Product Launch</div>
+        </a>
+        <a hidden class="work reveal" href="#">
+          <div class="thumb"></div>
+          <div class="cap">One‑page Lead Gen</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">What Clients Say</h2>
+      <div class="testimonials">
+        <div class="quote reveal">“Super modern design and fast delivery. Our leads doubled.” — <b>Nova Studio</b></div>
+        <div class="quote reveal">“Loved the animations. Exactly the creative vibe we wanted.” — <b>Pixel Co.</b></div>
+        <div class="quote reveal">“Fog+ handled everything end‑to‑end. Great support.” — <b>BlueTech</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta reveal">
+        <div>
+          <h3 style="margin:0 0 6px">Ready to build your Fog+ </h3>
+          <div class="muted">Share your details — we’ll reply on WhatsApp or Email.</div>
+        </div>
+        <form id="leadForm" class="row" onsubmit="return false;">
+          <input required class="pill" style="background:transparent;color:var(--text)" type="text" name="name" placeholder="Your name" id="name" />
+          <input class="pill" style="background:transparent;color:var(--text)" type="email" name="email" placeholder="Email"id="email" />
+          <input class="pill" style="background:transparent;color:var(--text)" type="tel" name="phone" placeholder="WhatsApp number" id="number"/>
+          <button class="btn primary"  onclick="sendEmail()"  id="sendBtn">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Fog+ Program by Fogstudio18</div>
+      <div class="row">
+        <a class="pill" href="https://www.instagram.com/program_fog18?igsh=MTE4aWt4eHV3NmtrdA==">FOG+ Insta</a>
+                       <a class="pill" href="https://www.instagram.com/fogstudio18?igsh=bTU2OHgzMHFjM3A4">FOGStudio18</a>
+                <a class="pill" href="https://www.instagram.com/elite_coders_technologies?igsh=YzlueTl6cTlnOGdv">Elite Coder</a>
+        <a class="pill" href="https://wa.me/9888670627">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+<div id="orderOverlay" class="overlay">
+  <div class="overlay-content">
+    <h3>Contact Us</h3>
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">WhatsApp</button>
+    <button class="email-btn" onclick="sendEmail()">Email</button>
+    <button class="close-btn" onclick="closeOverlay()">Close</button>
+  </div>  
+</div>
+  <script>
+    // Theme switcher
+    const themePicker = document.getElementById('themePicker');
+    themePicker.addEventListener('change', (e)=>{
+      document.body.classList.remove('theme-corporate','theme-creative','theme-startup');
+      document.body.classList.add(e.target.value);
+    });
+
+
+function openOverlay(){
+  document.getElementById('orderOverlay').style.display='flex';
+}
+function closeOverlay(){
+  document.getElementById('orderOverlay').style.display='none';
 }
 
-.project-grid {
-  display: grid;
-  align-items:center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+function getDetails(){
+  return `Hi, let's build together!%0A`
 }
 
-.project-card {
-  background: #1a1a2e;
-  border-radius: 12px;
-  text-align: center;
-  
-  padding: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+function sendWhatsApp(){
+  let msg = getDetails();
+  window.open(`https://wa.me/9888670627?text=${msg}`,'_blank');
 }
 
-.project-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+function sendEmail(){
+  let msg = getDetails().replace(/%0A/g, '\n');
+  window.location.href = `mailto:gkfogatudio7@gmail.com?subject=New Order&body=${msg}`;
+}
+    // On-scroll reveal animations
+    let animationsOn = true;
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting && animationsOn){
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      })
+    }, {threshold: .2});
+    revealEls.forEach(el=>io.observe(el));
+
+    // Toggle animations
+    const toggleBtn = document.getElementById('toggleAnimations');
+    toggleBtn.addEventListener('click', ()=>{
+      animationsOn = !animationsOn;
+      document.querySelectorAll('.reveal').forEach(el=>{
+        if(animationsOn){
+          el.classList.remove('show');
+          io.observe(el);
+        } else {
+          el.classList.add('show');
+          io.unobserve(el);
+        }
+      })
+    });
+
+    // Simple WhatsApp / mailto lead
+    const leadForm = document.getElementById('leadForm');
+    const sendBtn = document.getElementById('sendBtn');
+    sendBtn.addEventListener('click', ()=>{
+      const data = Object.fromEntries(new FormData(leadForm).entries());
+      const msg = `Hi Fog+! Let's build together.\nName: ${data.name || ''}\nEmail: ${data.email || ''}\nWhatsApp: ${data.phone || ''}`;
+      const phone = (data.phone || '').replace(/\D/g,'');
+      if(phone){
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      } else if(data.email){
+        const url = `mailto:${data.email}?subject=${encodeURIComponent('Fog+ Demo Request')}&body=${encodeURIComponent(msg)}`;
+        window.location.href = url;
+      } else {
+        alert('Add WhatsApp number or Email to send.');
+      }
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    function getDetails(){
+  return `Hi, let's build together!%0A`+
+  `Details:%0A`+
+  `Name: ${document.getElementById('name').value}%0A`+
+  `Email: ${document.getElementById('email').value}%0A`+
+  `WhatsApp: ${document.getElementById('number').value}%0A`;
 }
 
-.project-card p {
-  font-size: 1rem;
-  color: #fff;
+function sendEmail(){
+  let msg = getDetails().replace(/%0A/g, '\n');
+  window.location.href = `mailto:gkfogatudio7@gmail.com?subject=New Order &body=${msg}`;
 }
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(142, 45, 226, 0.3);
-}
-    .about {
-  padding: 40px 20px;
-  background: #0f0f1e;
-  border-top: 2px solid #1a1a2e;
-}
-
-.about h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 15px;
-  background: linear-gradient(90deg,#00f2fe,#4facfe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.about h3 {
-  margin-top: 20px;
-  font-size: 1.3rem;
-  color: #8e2de2;
+    
+    
+  </script>
+</body>
+</html>  color: #8e2de2;
 }
 
 .about p {
