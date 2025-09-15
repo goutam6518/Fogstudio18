@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>calculater</title>
+</head>
+<body>
+<style>
+body{
+}
+
+.leyout{
+margin:0px 0px 0px 0px ;
+}
+#btnlist{
+display:flex;
+gap:10px;
+margin:0px 0px 5px 0px ;
+}
+button{
+padding:100px 100px 100px 100px ;
+background:#1a1a1a;
+color:white;
+font-size:30px;
+border:1px solid gray;
+border-radius:10px;
+}
+
+button:active{
+padding:100px 100px 100px 100px ;
+background:#2a2a2a;
+color:white;
+font-size:30px;
+border:1px solid gray;
+border-radius:10px;
+}
+
+.display{
+background:#5e5e5d;
+font-size:40px;
+height:120px;
+width:900px;
+color:white;
+}
+
+</style>
+
+<div class="leyout" >
+<input id="display" class="display" type="text" placeholder="Enter Here......" />
+<br>
+<br>
+<div class="btns" >
+<div id="btnlist" >
+<div><button onclick="pressNumber('1')" >1</button></div>
+<div><button onclick="pressNumber('2')" >2</button></div>
+<div><button onclick="pressNumber('3')" >3</button></div>
+<div><button onclick="opreaters('+')" >+</button></div>
+</div>
+<div id="btnlist" >
+<div><button onclick="pressNumber('4')" >4</button></div>
+<div><button onclick="pressNumber('5')" >5</button></div>
+<div><button onclick="pressNumber('6')" >6</button></div>
+<div><button onclick="opreaters('-')" >-</button></div>
+</div>
+<div id="btnlist" >
+<div><button onclick="pressNumber('7')" >7</button></div>
+<div><button onclick="pressNumber('8')" >8</button></div>
+<div><button onclick="pressNumber('9')" >9</button></div>
+<div><button onclick="opreaters('*')" >*</button></div>
+</div>
+<div id="btnlist" >
+<div><button onclick="allclear()" >C</button></div>
+<div><button onclick="pressNumber('0')" >0</button></div>
+<div><button onclick="opreaters('/')" >/</button></div>
+<div><button onclick="result()" >=</button></div>
+</div>
+</div>
+</div>
+
+<script>
+let num1 = "";
+let opreater = "";
+let num2 = "";
+let isSecNum = false;
+
+function pressNumber(val){
+if(isSecNum){
+num2 += val;
+}else{
+num1 += val;
+}
+display();
+}
+
+function opreaters(o){
+opreater = o;
+isSecNum = true ;
+display();
+} 
+
+function display(){
+document.getElementById('display').value = num1 + opreater + num2 ; 
+
+}
+
+function result(){
+if(opreater == "+"){
+num1 =  parseInt(num1) + parseInt(num2);
+}
+if(opreater == "-"){
+num1 =  parseInt(num1) - parseInt(num2);
+}
+if(opreater == "*"){
+num1 =  parseInt(num1) * parseInt(num2);
+}
+if(opreater == "/"){
+num1 =  parseInt(num1) / parseInt(num2);
+}
+num2 = "";
+display();
+}
+
+function allclear(){
+ num1 = "";
+ num2 = "";
+ opreater = "";
+ isSecNum = false;
+ display();
+}
+
+</script>
+
+</body>
+</html>
